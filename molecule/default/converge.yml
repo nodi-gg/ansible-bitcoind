@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include bitcoind"
+      include_role:
+        name: "bitcoind"

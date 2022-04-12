@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  namespace: nodi
+  role_name: bitcoind
+  author: Djuri Baars
+  description: Set up a bitcoin lightning node from source
+  license: Apache 2.0
+  min_ansible_version: 2.1
+  galaxy_tags: [bitcoin, lightning, bitcoind, lnd]
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+dependencies: []

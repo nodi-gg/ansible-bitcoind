@@ -1,0 +1,59 @@
+---
+bitcoind_deps:
+  debian:
+    - git-core
+    - automake
+    - autotools-dev
+    - binutils-gold
+    - bison
+    - bsdmainutils
+    - build-essential
+    - clang
+    - cmake
+    - curl
+    - g++-multilib
+    - libtool
+    - libzmq3-dev
+    - patch
+    - pkg-config
+    - python3
+    - sqlite3
+    - libminiupnpc-dev
+    - libnatpmp-dev
+  fedora:
+    - gcc-c++ 
+    - libtool 
+    - make 
+    - autoconf 
+    - automake 
+    - python3
+  centos:
+    - autoconf
+    - automake
+    - boost-devel
+    - gcc-c++
+    - git
+    - libdb4-cxx
+    - libdb4-cxx-devel
+    - libevent-devel
+    - libtool
+    - openssl-devel
+    - libdb-devel.x86_64
+    - libdb
+    - libdb-cxx.x86_64
+    - libdb-cxx-devel.x86_64
+    - patch
+    - wget
+
+bitcoin_git_branch: v22.0
+
+bitcoind_src_dir: /opt/src/bitcoind
+
+bitcoind_make_depends_params: "NO_QT=1 NO_QR=1 NO_WALLET=1 NO_UPNP=1 -j{{ ansible_processor_count }}"
+
+bitcoind_host_platform_triplet: "x86_64-pc-linux-gnu"
+
+bitcoind_config_site: "{{ bitcoind_src_dir }}/depends/{{ bitcoind_host_platform_triplet }}/share/config.site"
+bitcoind_configure_options: --prefix=/usr/local --without-miniupnpc --enable-hardening --without-gui --with-zmq --without-qrencode
+
+bitcoind_make_params: "-j{{ ansible_processor_count }}"

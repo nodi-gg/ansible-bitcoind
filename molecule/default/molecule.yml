@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: buster
+    pre_build_image: true
+    image: quay.io/paulfantom/molecule-systemd:debian-10
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: focal
+    pre_build_image: true
+    image: quay.io/paulfantom/molecule-systemd:ubuntu-20.04
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+provisioner:
+  name: ansible
+  playbooks:
+    prepare: prepare.yml
+    converge: playbook.yml
+verifier:
+  name: ansible
