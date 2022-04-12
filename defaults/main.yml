@@ -11,7 +11,7 @@ bitcoind_deps:
     - clang
     - cmake
     - curl
-    - g++-multilib
+ #   - g++-multilib
     - libtool
     - libzmq3-dev
     - patch
@@ -54,6 +54,6 @@ bitcoind_make_depends_params: "NO_QT=1 NO_QR=1 NO_WALLET=1 NO_UPNP=1 -j{{ ansibl
 bitcoind_host_platform_triplet: "x86_64-pc-linux-gnu"
 
 bitcoind_config_site: "{{ bitcoind_src_dir }}/depends/{{ bitcoind_host_platform_triplet }}/share/config.site"
-bitcoind_configure_options: --prefix=/usr/local --without-miniupnpc --enable-hardening --without-gui --with-zmq --without-qrencode
+bitcoind_configure_options: --prefix=/usr/local --without-miniupnpc --enable-hardening --without-gui --with-zmq --without-qrencode --disable-wallet
 
 bitcoind_make_params: "-j{{ ansible_processor_count }}"

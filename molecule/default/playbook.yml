@@ -2,4 +2,6 @@
 - hosts: all
   any_errors_fatal: true
   roles:
-    - nodigg.bitcoind
+    - nodi.bitcoind
+  vars:
+    bitcoind_host_platform_triplet: aarch64-unknown-linux-gnu # Only works on Mac M1 / ARM Ampere

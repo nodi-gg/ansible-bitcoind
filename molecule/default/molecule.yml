@@ -4,15 +4,15 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: buster
+  - name: bullseye
     pre_build_image: true
-    image: quay.io/paulfantom/molecule-systemd:debian-10
+    image: dsbaars/molecule-images:debian-bullseye
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: focal
     pre_build_image: true
-    image: quay.io/paulfantom/molecule-systemd:ubuntu-20.04
+    image: dsbaars/molecule-images:ubuntu-focal
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
